@@ -16,7 +16,7 @@ def replay():
         actual = gate.evaluate(case['input'])
         fields = [x['field'] for x in actual['unresolved']]
         passed = (fields == case['expected_unresolved'] and
-                  actual['ready_for_personalized_recommendation'] == (not fields) and
+                  actual['ready_for_personalized_recommendation'] == case.get('expected_ready', not fields) and
                   len(actual['questions']) == len(fields) and not actual['purchase_authorized'])
         results.append({'id': case['id'], 'problem': case['problem'], 'passed': passed,
                         'expected_unresolved': case['expected_unresolved'], 'actual': actual})

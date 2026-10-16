@@ -22,3 +22,11 @@ Results: 10 unittest methods passed, including 17 intake fixture subcases. Deter
 Run locally using README commands. No network, real personal data, account credentials, payment or merchant orders are involved in this sandbox.
 
 Independent language walkthrough: six scenarios reviewed; see SANDBOX-REVIEW.md. Three additional regression fixtures cover currency, sizing-chart category and country not inferred from postal code.
+
+## v0.3 correctness regression run
+
+2026-10-16: **40 unittest methods passed**, including the fixture replay test containing **26 intake subcases**. Separate deterministic replay: **26/26**. CLI examples for intake, quote arithmetic and same-product offers ran locally; Skill format and local Markdown references checked. These counts are not additive independent shopping-task successes.
+
+Reproduced original failures before correction: boolean/zero/unknown size accepted; source=user ignored explicit wrong-recipient flags. Review also identified unqualified postal requirements, field-insensitive unknown markers and region-specific warranty wording. Regressions exercise those cases plus omitted profile fields, wrong currency/variant/quantity/destination, unknown shipping, stale/future observations, conditional/subscription prices, estimated delivery, ties, malformed CLI JSON, mixed component currencies and excessive decimal precision.
+
+Independent review used a separate agent at xhigh reasoning effort with synthetic read-only inputs. No browser checkout, real payment, account installation or statistical shopping benchmark was executed. Merchant evidence extraction and host compliance remain unverified. New hosted Python 3.10/3.12 workflow results must be checked separately after push; local success alone does not establish hosted CI success.

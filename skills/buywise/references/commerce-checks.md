@@ -8,7 +8,7 @@ Manufacturer/part number and GTIN/UPC where available; merchant SKU/ASIN/variant
 
 ## Seller and authenticity
 
-Actual sold-by business differs from marketplace operator and fulfillment provider. Verify official domain or brand distributor listing where available; unknown authorization remains unknown. Check invoice, warranty issuer, US warranty eligibility and third-party exclusions. Review seller history and implausible pricing when material; low price alone is not proof of fraud. Platform presence, HTTPS and ratings are not authenticity guarantees.
+Actual sold-by business differs from marketplace operator and fulfillment provider. Verify official domain or brand distributor listing where available; unknown authorization remains unknown. Check invoice, warranty issuer, eligibility in the recipient's delivery/use region and third-party exclusions. Review seller history and implausible pricing when material; low price alone is not proof of fraud. Platform presence, HTTPS and ratings are not authenticity guarantees.
 
 ## Cost
 

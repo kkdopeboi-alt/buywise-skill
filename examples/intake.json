@@ -1,7 +1,22 @@
 {
-  "requirements": ["size", "size_system", "destination_country", "budget", "budget_scope"],
+  "task": {
+    "mode": "recommend",
+    "category": "footwear",
+    "compare_total": true
+  },
+  "requirements": [],
   "facts": {
-    "budget": {"value": "150 USD", "source": "user"},
-    "budget_scope": {"value": "all-in", "source": "user"}
+    "budget_amount": {
+      "value": "150",
+      "source": "user"
+    },
+    "budget_currency": {
+      "value": "USD",
+      "source": "user"
+    },
+    "budget_scope": {
+      "value": "all-in",
+      "source": "user"
+    }
   }
 }

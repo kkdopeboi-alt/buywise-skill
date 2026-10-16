@@ -11,11 +11,11 @@ Reduce shopping effort without hiding uncertainty. Use the user's existing searc
 
 Extract known constraints from the request and relevant conversation: exact model/variant or use case, quantity, budget and whether all-in, destination, deadline, compatibility, condition, seller preferences and authorized action. Separate hard requirements from preferences.
 
-Read [decision-policy.md](references/decision-policy.md) and [intake-gate.md](references/intake-gate.md) before final selection. Missing purchase-critical facts MUST be asked, even if this adds a conversation turn: recipient's country/region, relevant postal code, apparel size plus sizing system, essential compatibility, material budget/condition and deadline. Do not cap the question count by omitting blockers. Ask one concise batch, explain why it matters, and continue only independent read-only research while awaiting answers. Generic exploratory examples are allowed, but label them provisional and do not present a personalized winner or purchase-ready choice before blockers resolve.
+Read [decision-policy.md](references/decision-policy.md) before final selection. Missing purchase-critical facts MUST be asked, even if this adds a conversation turn: recipient's country/region, relevant postal code or delivery zone, apparel size plus sizing chart, essential compatibility, material budget/currency/scope, condition and deadline. Do not cap the question count by omitting blockers. Ask one concise batch, explain why it matters, and continue only independent read-only research while awaiting answers. Generic exploratory examples are allowed without an intake questionnaire; label them provisional and do not present a personalized winner or purchase-ready choice before blockers resolve.
 
 Avoid repeating known facts only when they are explicit in current context or authorized local memory, attributable to the actual recipient, consistent and still applicable. Do not broadly search private files for preferences. A usual shipping address is not the destination for a gift by default; an old shoe size in another brand/system is not proof of fit. Current user instructions override memory. Ask about contradictions or doubtful applicability. Never invent sizes, device models, destination, payment, membership or permission. Low-impact style preferences can have disclosed reversible defaults. Collect full address only in secure checkout when needed.
 
-When Python is available, use the optional [decision_gate.py](scripts/decision_gate.py) with the contract in intake-gate.md after extracting requirements; otherwise apply the same gate explicitly. It only checks structured facts and cannot discover which requirements are relevant. Do not invent field values to pass it.
+When structured intake would reduce error and Python is available, use optional [decision_gate.py](scripts/decision_gate.py); read [intake-gate.md](references/intake-gate.md) only then. Task profiles supply baseline critical fields for common categories, but cannot discover every relevant requirement or validate fit. Generic discovery, exact-item comparison and personal selection have different question needs. Never invent values or mark memory applicable just to pass a gate. The readiness flag means intake only, never evidence completeness or buying permission.
 
 Research/recommendation is not purchase authorization. A direct purchase request may authorize a bounded transaction when constraints are clear and host rules allow. Preserve existing authorization rather than asking again automatically. Resolve missing or materially changed terms; silence is not consent.
 
@@ -30,6 +30,8 @@ Recheck finalists at the merchant source. Record material source URLs and observ
 ## Compare and return at most three
 
 Apply hard filters first. An unknown hard requirement makes an offer provisional, not purchase-ready. Never silently relax constraints. Compare all-in costs under the same destination, quantity and condition; separate verified totals, estimates and conditional discounts. Optional [quote_check.py](scripts/quote_check.py) performs arithmetic only; see [quote-format.md](references/quote-format.md). It cannot verify a seller, evidence or permission.
+
+For several same-product offers, optional [compare_offers.py](scripts/compare_offers.py) classifies supplied evidence and orders comparable observed totals; read [offer-comparison.md](references/offer-comparison.md) when using it. Do not compare mixed variants, pack quantities or destinations. Provisional offers may be cheaper: never label the cheapest verified subset as cheapest among all offers. Refresh selected facts before purchase; a freshness threshold is a review policy, not a stock guarantee.
 
 Select meaningfully different options: best fit, lower cost and relevant capability advantage when appropriate. Respect fixed-model or cheapest-only requests rather than forcing three roles. Return fewer if fewer qualify. No invented sales ranks, ratings, numerical scores or brand-quality claims. Affiliate compensation must not improve rank.
 
@@ -48,5 +50,6 @@ When access/payment is unsupported, give an accurate handoff with link, variant,
 - [purchase-safety.md](references/purchase-safety.md): untrusted content, authorization and recovery.
 - [quote-format.md](references/quote-format.md): optional arithmetic helper.
 - [intake-gate.md](references/intake-gate.md): critical-field provenance and executable gate.
+- [offer-comparison.md](references/offer-comparison.md): offline same-product offer filtering.
 
 Research rationale lives in repository `docs/RESEARCH.md`; ordinary shopping does not require loading it. Physical-goods scope: regulated, age-restricted, safety-critical or unusually high-risk purchases require applicable host rules and specialist evidence. Do not extrapolate into medical advice, financial products, travel or ticketing.

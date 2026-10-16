@@ -1,0 +1,93 @@
+{
+  "request": {
+    "product_key": "fixture-headset:v1:black:single",
+    "destination_key": "US:10001",
+    "quantity": 1,
+    "condition": "new",
+    "currency": "USD",
+    "as_of": "2026-10-16T10:00:00Z",
+    "max_age_minutes": 60,
+    "max_total": "100"
+  },
+  "offers": [
+    {
+      "id": "observed-offer",
+      "url": "https://merchant.example/products/fictional",
+      "seller_id": "fictional-merchant",
+      "product_key": "fixture-headset:v1:black:single",
+      "destination_key": "US:10001",
+      "quantity": 1,
+      "condition": "new",
+      "availability": "in_stock",
+      "checked_at": "2026-10-16T09:30:00Z",
+      "purchase_type": "one_time",
+      "price_eligibility": "verified",
+      "quote": {
+        "currency": "USD",
+        "items": {
+          "amount": "90",
+          "status": "observed"
+        },
+        "shipping": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "tax": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "duties": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "fees": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "discount": {
+          "amount": "0",
+          "status": "observed"
+        }
+      }
+    },
+    {
+      "id": "unknown-shipping-offer",
+      "url": "https://merchant.example/products/fictional",
+      "seller_id": "fictional-merchant",
+      "product_key": "fixture-headset:v1:black:single",
+      "destination_key": "US:10001",
+      "quantity": 1,
+      "condition": "new",
+      "availability": "in_stock",
+      "checked_at": "2026-10-16T09:30:00Z",
+      "purchase_type": "one_time",
+      "price_eligibility": "verified",
+      "quote": {
+        "currency": "USD",
+        "items": {
+          "amount": "70",
+          "status": "observed"
+        },
+        "shipping": {
+          "status": "unknown"
+        },
+        "tax": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "duties": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "fees": {
+          "amount": "0",
+          "status": "observed"
+        },
+        "discount": {
+          "amount": "0",
+          "status": "observed"
+        }
+      }
+    }
+  ]
+}
