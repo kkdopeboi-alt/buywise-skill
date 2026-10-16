@@ -1,0 +1,10 @@
+{
+  "id": "fictional-offer-for-arithmetic-only",
+  "currency": "USD",
+  "items": {"amount": "80.00", "status": "observed"},
+  "shipping": {"amount": "25.00", "status": "observed"},
+  "tax": {"status": "unknown"},
+  "duties": {"amount": "0", "status": "observed"},
+  "fees": {"amount": "0", "status": "observed"},
+  "discount": {"amount": "0", "status": "observed"}
+}

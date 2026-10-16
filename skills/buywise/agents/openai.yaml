@@ -1,0 +1,4 @@
+interface:
+  display_name: "BuyWise"
+  short_description: "Compare trusted offers with fewer questions"
+  default_prompt: "Use $buywise to compare suitable products, verify costs and delivery, and recommend up to three choices."

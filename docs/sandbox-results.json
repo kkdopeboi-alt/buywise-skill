@@ -1,0 +1,433 @@
+{
+  "type": "deterministic_fixture_replay_not_end_to_end",
+  "passed": 17,
+  "total": 17,
+  "cases": [
+    {
+      "id": "shoes-missing-fit-region",
+      "problem": "跑鞋缺尺码体系与配送地区",
+      "passed": true,
+      "expected_unresolved": [
+        "size",
+        "size_system",
+        "destination_country"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "size",
+            "reason": "missing"
+          },
+          {
+            "field": "size_system",
+            "reason": "missing"
+          },
+          {
+            "field": "destination_country",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "需要什么尺码或关键尺寸？",
+          "尺码采用哪个体系（如 US/EU/UK）？",
+          "收货国家或地区是哪里？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "same-recipient-memory",
+      "problem": "本人当前适用记忆避免重复追问",
+      "passed": true,
+      "expected_unresolved": [],
+      "actual": {
+        "ready_for_personalized_recommendation": true,
+        "resolved": [
+          "size",
+          "destination_country"
+        ],
+        "unresolved": [],
+        "questions": [],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "gift-other-recipient",
+      "problem": "给妹妹买鞋不能沿用本人尺码",
+      "passed": true,
+      "expected_unresolved": [
+        "size",
+        "destination_country"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "size",
+            "reason": "unconfirmed_applicability"
+          },
+          {
+            "field": "destination_country",
+            "reason": "unconfirmed_applicability"
+          }
+        ],
+        "questions": [
+          "需要什么尺码或关键尺寸？现有记录有冲突或不确定是否适用于本次购买，请确认。",
+          "收货国家或地区是哪里？现有记录有冲突或不确定是否适用于本次购买，请确认。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "assumed-us",
+      "problem": "不能把默认美国当配送事实",
+      "passed": true,
+      "expected_unresolved": [
+        "destination_country"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "destination_country",
+            "reason": "unsupported_source"
+          }
+        ],
+        "questions": [
+          "收货国家或地区是哪里？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "conflicting-memory",
+      "problem": "尺码记录互相矛盾需确认",
+      "passed": true,
+      "expected_unresolved": [
+        "size"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "size",
+            "reason": "conflict"
+          }
+        ],
+        "questions": [
+          "需要什么尺码或关键尺寸？现有记录有冲突或不确定是否适用于本次购买，请确认。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "device-unknown",
+      "problem": "兼容性缺设备型号",
+      "passed": true,
+      "expected_unresolved": [
+        "device_model"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "destination_country"
+        ],
+        "unresolved": [
+          {
+            "field": "device_model",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "需要兼容的设备准确型号是什么？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "deadline-zip",
+      "problem": "次日送达缺邮编不能确认",
+      "passed": true,
+      "expected_unresolved": [
+        "postal_code"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "deadline"
+        ],
+        "unresolved": [
+          {
+            "field": "postal_code",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "收货邮编是什么？用于核对税费、配送和到货时间。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "known-repeat-order",
+      "problem": "当前同款与目的地已知不重复问",
+      "passed": true,
+      "expected_unresolved": [],
+      "actual": {
+        "ready_for_personalized_recommendation": true,
+        "resolved": [
+          "device_model",
+          "destination_country",
+          "postal_code"
+        ],
+        "unresolved": [],
+        "questions": [],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "all-in-unknown",
+      "problem": "预算口径影响税运费比较",
+      "passed": true,
+      "expected_unresolved": [
+        "budget_scope"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "budget"
+        ],
+        "unresolved": [
+          {
+            "field": "budget_scope",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "预算是否包含税费、运费和必需配件？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "blank-postal",
+      "problem": "空邮编不算已知",
+      "passed": true,
+      "expected_unresolved": [
+        "postal_code"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "postal_code",
+            "reason": "missing_value"
+          }
+        ],
+        "questions": [
+          "收货邮编是什么？用于核对税费、配送和到货时间。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "memory-not-validated",
+      "problem": "记忆未经适用性核验不能自动采用",
+      "passed": true,
+      "expected_unresolved": [
+        "size"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "size",
+            "reason": "unconfirmed_applicability"
+          }
+        ],
+        "questions": [
+          "需要什么尺码或关键尺寸？现有记录有冲突或不确定是否适用于本次购买，请确认。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "many-blockers",
+      "problem": "关键问题不能因三问上限而省略",
+      "passed": true,
+      "expected_unresolved": [
+        "size",
+        "size_system",
+        "destination_country",
+        "budget",
+        "device_model"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "size",
+            "reason": "missing"
+          },
+          {
+            "field": "size_system",
+            "reason": "missing"
+          },
+          {
+            "field": "destination_country",
+            "reason": "missing"
+          },
+          {
+            "field": "budget",
+            "reason": "missing"
+          },
+          {
+            "field": "device_model",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "需要什么尺码或关键尺寸？",
+          "尺码采用哪个体系（如 US/EU/UK）？",
+          "收货国家或地区是哪里？",
+          "预算上限和币种是什么？",
+          "需要兼容的设备准确型号是什么？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "latest-user-destination",
+      "problem": "调用方已按用户最新说明替换旧地址",
+      "passed": true,
+      "expected_unresolved": [
+        "postal_code"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "destination_country"
+        ],
+        "unresolved": [
+          {
+            "field": "postal_code",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "收货邮编是什么？用于核对税费、配送和到货时间。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "unknown-custom-requirement",
+      "problem": "自定义材料要求缺失应补问",
+      "passed": true,
+      "expected_unresolved": [
+        "material_allergy"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [],
+        "unresolved": [
+          {
+            "field": "material_allergy",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "请补充会影响本次选购的关键信息：material_allergy。"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "budget-currency-missing",
+      "problem": "150不代表150美元",
+      "passed": true,
+      "expected_unresolved": [
+        "budget_currency",
+        "budget_scope"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "budget_amount"
+        ],
+        "unresolved": [
+          {
+            "field": "budget_currency",
+            "reason": "missing"
+          },
+          {
+            "field": "budget_scope",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "预算使用什么币种？",
+          "预算是否包含税费、运费和必需配件？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "shoe-chart-category-missing",
+      "problem": "US9未说明男款女款不能假定",
+      "passed": true,
+      "expected_unresolved": [
+        "size_category"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "size",
+          "size_system"
+        ],
+        "unresolved": [
+          {
+            "field": "size_category",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "应使用男款、女款、儿童款或哪个品牌尺码表？"
+        ],
+        "purchase_authorized": false
+      }
+    },
+    {
+      "id": "postal-does-not-prove-country",
+      "problem": "邮编格式不能代替国家",
+      "passed": true,
+      "expected_unresolved": [
+        "destination_country"
+      ],
+      "actual": {
+        "ready_for_personalized_recommendation": false,
+        "resolved": [
+          "postal_code"
+        ],
+        "unresolved": [
+          {
+            "field": "destination_country",
+            "reason": "missing"
+          }
+        ],
+        "questions": [
+          "收货国家或地区是哪里？"
+        ],
+        "purchase_authorized": false
+      }
+    }
+  ]
+}

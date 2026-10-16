@@ -1,0 +1,7 @@
+{
+  "requirements": ["size", "size_system", "destination_country", "budget", "budget_scope"],
+  "facts": {
+    "budget": {"value": "150 USD", "source": "user"},
+    "budget_scope": {"value": "all-in", "source": "user"}
+  }
+}
