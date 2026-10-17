@@ -2,11 +2,29 @@
 
 **Evidence-backed shopping decisions for personal AI agents.**
 
+[![Offline checks](https://github.com/kkdopeboi-alt/buywise-skill/actions/workflows/tests.yml/badge.svg)](https://github.com/kkdopeboi-alt/buywise-skill/actions/workflows/tests.yml)
+
 [中文说明](README.zh-CN.md) · [Skill](skills/buywise/SKILL.md) · [Research](docs/RESEARCH.md) · [v0.3 changes](docs/V03-CHANGES.md)
 
 BuyWise helps an existing agent ask the critical questions, match exact variants, compare complete costs and return up to three useful choices. It reuses attributable context and memory, without guessing sizes, shipping regions or buying permission.
 
-> v0.3 is a portable instruction package with offline Python helpers. It is not a product database, web scraper, remote MCP server or payment integration. Live results depend on the host's available tools and merchant access.
+> v0.3.1 is a portable instruction package with offline Python helpers. It is not a product database, web scraper, remote MCP server or payment integration. Live results depend on the host's available tools and merchant access.
+
+## Install and try
+
+```sh
+npx skills add kkdopeboi-alt/buywise-skill --skill buywise
+```
+
+Choose your agent when prompted. See the [quickstart](docs/QUICKSTART.md) for prerequisites, manual ZIP installation and troubleshooting. The third-party CLI may collect aggregate install telemetry; BuyWise has no telemetry. Local folder copying with skills CLI 1.7.2 was smoke-tested; remote GitHub cloning failed in the maintainer's test environment, so remote install is not claimed as verified.
+
+Want to see the checks without an agent or API key? Download/clone the repository and run:
+
+```sh
+python scripts/demo.py
+```
+
+Fictional demo: missing shoe size/region → ask together; $70 with unknown shipping → provisional; $1 wrong variant → excluded. This is reproducible helper behavior, not a live-agent performance claim.
 
 ## Why use it?
 
@@ -21,7 +39,7 @@ BuyWise helps an existing agent ask the critical questions, match exact variants
 
 Generic research can start without personal details. A personalized buying shortlist needs the relevant facts. At most three choices means fewer when fewer qualify; it does not mean forcing three unsuitable products.
 
-## Install
+## Manual installation and host requirements
 
 Clone this repository, then copy the **whole** `skills/buywise/` folder into the skill directory documented by your host. For Codex this is typically `~/.codex/skills/buywise`; reload skills as required by the client and invoke `$buywise`.
 
@@ -75,6 +93,8 @@ All examples use fictional merchants/items. No helper contacts shopping sites, r
 Prompt instructions cannot guarantee authenticity, access, delivery or injection resistance. The host's permissions and the merchant's rules still apply. Existing explicit bounded purchase authorization can be reused; a recommendation request cannot authorize payment.
 
 ## Contribute
+
+Tried it? [Tell us whether your first comparison worked](https://github.com/kkdopeboi-alt/buywise-skill/issues/new?template=usage-feedback.md). A redacted failure is especially useful; no purchase history or credentials are needed.
 
 Report a reproducible failure with a redacted request, evidence timestamps, expected result and actual behavior. Never submit addresses, cookies, tokens, card data or restricted merchant datasets. Category rules should improve fit or evidence quality; affiliate commission must not change ranking.
 

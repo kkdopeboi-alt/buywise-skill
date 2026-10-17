@@ -2,6 +2,16 @@
 
 [English](README.md) · [v0.3 改进](docs/V03-CHANGES.md)
 
+## 一条命令安装
+
+```sh
+npx skills add kkdopeboi-alt/buywise-skill --skill buywise
+```
+
+按提示选择宿主。需 Node.js/npm；第三方 CLI 可能记录汇总安装量，BuyWise 自身没有遥测。本次已验证官方 CLI 1.7.2 的本地目录发现和复制；远程 GitHub 克隆在测试环境遇到连接重置，未声称远程安装已成功。无法克隆时可下载仓库ZIP，按[五分钟指南](docs/QUICKSTART.md)手动复制。
+
+不装 Bot 也可在仓库根目录运行 `python scripts/demo.py` 查看虚构数据演示。[提交脱敏试用反馈](https://github.com/kkdopeboi-alt/buywise-skill/issues/new?template=usage-feedback.md)。
+
 Research-first shopping skill for personal agents. Compare exact products or select up to three useful alternatives, with seller evidence, comparable cost, delivery and clear buying boundaries.
 
 **v0.3：可安装的指令与规则包，附关键问题检查器、离线报价计算器和可复跑沙盘。不是购物平台、价格数据库或自动支付服务。**

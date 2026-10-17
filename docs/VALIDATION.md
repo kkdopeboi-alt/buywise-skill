@@ -30,3 +30,10 @@ Independent language walkthrough: six scenarios reviewed; see SANDBOX-REVIEW.md.
 Reproduced original failures before correction: boolean/zero/unknown size accepted; source=user ignored explicit wrong-recipient flags. Review also identified unqualified postal requirements, field-insensitive unknown markers and region-specific warranty wording. Regressions exercise those cases plus omitted profile fields, wrong currency/variant/quantity/destination, unknown shipping, stale/future observations, conditional/subscription prices, estimated delivery, ties, malformed CLI JSON, mixed component currencies and excessive decimal precision.
 
 Independent review used a separate agent at xhigh reasoning effort with synthetic read-only inputs. No browser checkout, real payment, account installation or statistical shopping benchmark was executed. Merchant evidence extraction and host compliance remain unverified. New hosted Python 3.10/3.12 workflow results must be checked separately after push; local success alone does not establish hosted CI success.
+
+
+## v0.3.1 onboarding validation (2026-10-17)
+
+Official skills CLI 1.7.2 discovered and copied BuyWise into an isolated project-local Codex skills directory; DISABLE_TELEMETRY=1 and DO_NOT_TRACK=1 were set. Installed compare_offers.py ran against the fictional example successfully. This verifies folder discovery/copying and helper execution, not a live host shopping task.
+
+Remote owner/repo installation was attempted but GitHub cloning failed with a connection reset in this environment. That is not represented as a successful remote install; manual ZIP installation remains available. The repository demo ran with fictional data and no network or payments. No artificial install-count inflation, external tester or live-purchase claim is made.
